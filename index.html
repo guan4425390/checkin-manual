@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>我的工具签 · 管理员使用说明 v1.9.78</title>
+<style>
+  @page { size: A4; margin: 15mm 13mm; }
+  :root{
+    --ink:#1f2a37; --ink2:#5b6675; --ink3:#8a94a3; --line:#e4e8ee; --bg:#f6f7f9; --card:#ffffff;
+    --navy:#185FA5; --navy-bg:#E6F1FB; --green:#3B6D11; --green-bg:#EAF3DE;
+    --orange:#BA7517; --orange-bg:#FAEEDA; --red:#A32D2D; --red-bg:#FCEBEB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei","PingFang SC",-apple-system,sans-serif;background:var(--bg);
+       color:var(--ink);line-height:1.8;font-size:14px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:860px;margin:0 auto;padding:26px 18px 50px}
+
+  .cover{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:32px 38px 26px;margin-bottom:16px}
+  .kicker{font-size:12px;color:var(--navy);font-weight:700;letter-spacing:.12em}
+  h1{font-size:28px;font-weight:800;margin:10px 0 4px}
+  .sub{font-size:14.5px;color:var(--ink2);margin-bottom:16px}
+  .meta{font-size:12.5px;color:var(--ink2);line-height:1.95}
+  .meta b{color:var(--ink)}
+
+  h2{font-size:18px;font-weight:800;margin:26px 0 6px;padding:5px 0 5px 12px;border-left:4px solid var(--navy);
+     background:#f2f6fb;break-after:avoid;page-break-after:avoid}
+  h3{font-size:14.5px;font-weight:700;margin:16px 0 6px;color:#16324f;break-after:avoid}
+  p{margin:6px 0}
+  b{font-weight:700}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:10px 0;
+        break-inside:avoid;page-break-inside:avoid}
+  .tip{border-radius:9px;padding:10px 14px;margin:10px 0;font-size:13px;break-inside:avoid;page-break-inside:avoid}
+  .tip.blue{background:var(--navy-bg);border-left:3px solid var(--navy)}
+  .tip.green{background:var(--green-bg);border-left:3px solid #639922}
+  .tip.orange{background:var(--orange-bg);border-left:3px solid #EF9F27}
+  .tip.red{background:var(--red-bg);border-left:3px solid #E24B4A}
+  .tip .h{display:block;font-weight:800;margin-bottom:2px}
+
+  table{width:100%;border-collapse:collapse;margin:9px 0;font-size:12.5px;background:var(--card);
+        break-inside:avoid;page-break-inside:avoid}
+  th{background:#eef1f5;text-align:left;padding:7px 10px;border:1px solid var(--line);font-weight:700}
+  td{padding:7px 10px;border:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#fafbfc}
+
+  .step{display:flex;gap:11px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+        border-radius:10px;padding:10px 14px;margin:7px 0;break-inside:avoid;page-break-inside:avoid}
+  .num{flex:0 0 22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;
+       display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:3px}
+  .step .t{font-weight:700}
+  .step .d{font-size:12.5px;color:var(--ink2)}
+
+  .fig{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0;
+       break-inside:avoid;page-break-inside:avoid}
+  .fig .cap{font-size:11.5px;color:var(--ink2);text-align:center;margin-top:6px}
+
+  .tag{display:inline-block;padding:0 7px;border-radius:999px;font-size:11.5px;font-weight:700;line-height:1.7}
+  .tag.blue{background:var(--navy-bg);color:var(--navy)}
+  .tag.green{background:var(--green-bg);color:var(--green)}
+  .tag.orange{background:var(--orange-bg);color:#8a5510}
+  .tag.red{background:var(--red-bg);color:var(--red)}
+  .tag.gray{background:#eef0f3;color:#5b6675}
+
+  code{background:#eef1f5;border-radius:3px;padding:0 4px;font-size:12px;font-family:Consolas,monospace}
+  .mono{font-family:Consolas,monospace;font-size:11.5px;background:#f7f8fa;border:1px dashed var(--line);
+        border-radius:6px;padding:8px 11px;margin:7px 0;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+  ul,ol{padding-left:20px;margin:6px 0}
+  li{margin:3px 0}
+  .footer{margin-top:26px;padding-top:10px;border-top:1px solid var(--line);font-size:11.5px;
+          color:var(--ink3);text-align:center;line-height:1.8}
+  .newpage{break-before:page;page-break-before:always}
+  @media print{
+    body{background:#fff}
+    .wrap{max-width:none;padding:0}
+    tr,td,th{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ==================== 封面 ==================== -->
+<div class="cover">
+  <div class="kicker">我的工具签 · 信标签到系统</div>
+  <h1>管理员使用说明</h1>
+  <div class="sub">日常会用到的功能，一页一件事</div>
+  <div class="meta">
+    适用版本：<b>v1.9.78</b>　·　<b>辅导员 / 根管理员 / 学生管理员</b><br>
+    内容：登录 · 出勤看板 · 签到项 · 现场签到与补签 · 名单与签到点 · 导出 · 常见问题
+  </div>
+</div>
+
+<div class="tip orange">
+  <span class="h">记住这三件事就够用了</span>
+  ① 上课前确认<b>签到项是启用的、时间窗对</b>；<br>
+  ② 课中看<b>未签到名单</b>点名，漏签的用<b>补签码</b>补；<br>
+  ③ 补签码<b>展示完一定要点「作废」</b>。
+</div>
+
+<!-- ==================== 一、登录 ==================== -->
+<h2>一、登录</h2>
+<div class="step"><div class="num">1</div><div><div class="t">小程序底部「导向」页 →「管理员登录」</div></div></div>
+<div class="step"><div class="num">2</div><div><div class="t">输入账号 + 密码</div><div class="d">账号名就是本人姓名；初始密码 <code>666666</code>，登录后请在首页底部「修改我的密码」改掉</div></div></div>
+
+<p><b>三种账号看到的菜单不一样</b>，看不到某个入口不是故障：</p>
+<table>
+  <tr><th style="width:150px">账号</th><th>能做什么</th></tr>
+  <tr><td><b>根管理员</b></td><td>全部功能（含账号管理、操作记录、固定签到项/签到点）</td></tr>
+  <tr><td><b>辅导员</b></td><td>本人所带班级的全部日常功能</td></tr>
+  <tr><td><b>学生管理员</b></td><td>看出勤看板、签到项列表、签到点，<b>现场出补签码</b>；不能改配置、看不到名单明细</td></tr>
+</table>
+<div class="tip blue">忘记密码无法自助找回：请根管理员在「账号管理」里点<b>重置密码</b>，密码恢复为 <code>666666</code>。多人共用设备时，用完请点<b>退出登录</b>。</div>
+
+<!-- ==================== 二、出勤看板 ==================== -->
+<h2 class="newpage">二、每天第一件事：出勤看板</h2>
+<p>首页点「出勤看板」，选好<b>日期</b>（默认今天）和<b>班级</b>，下面几块就是全部信息。</p>
+
+<div class="fig">
+<svg viewBox="0 0 680 300" width="100%" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>出勤看板结构</title>
+  <desc>顶部选日期与班级，四个数字显示总人数已签到未签到出勤率，下面是分时段出勤率和未签到名单</desc>
+  <rect x="140" y="6" width="340" height="286" rx="12" fill="#ffffff" stroke="#d5dbe3"/>
+  <rect x="156" y="22" width="180" height="26" rx="6" fill="#E6F1FB" stroke="#85B7EB" stroke-width=".6"/>
+  <text x="246" y="39" text-anchor="middle" font-size="10" fill="#185FA5">日期 2026-10-21 ▾</text>
+  <rect x="344" y="22" width="58" height="26" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width=".6"/>
+  <text x="373" y="39" text-anchor="middle" font-size="9.5" fill="#5b6675">⟳ 刷新</text>
+  <rect x="410" y="22" width="54" height="26" rx="6" fill="#F1EFE8" stroke="#B4B2A9" stroke-width=".6"/>
+  <text x="437" y="39" text-anchor="middle" font-size="9.5" fill="#5b6675">班级 ▾</text>
+
+  <rect x="156" y="58" width="308" height="50" rx="8" fill="#EAF3DE" stroke="#97C459" stroke-width=".6"/>
+  <text x="194" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#3B6D11">42</text>
+  <text x="194" y="97" text-anchor="middle" font-size="9" fill="#5b6675">总人数</text>
+  <text x="271" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#3B6D11">38</text>
+  <text x="271" y="97" text-anchor="middle" font-size="9" fill="#5b6675">已签到</text>
+  <text x="348" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#BA7517">4</text>
+  <text x="348" y="97" text-anchor="middle" font-size="9" fill="#5b6675">未签到</text>
+  <text x="425" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#185FA5">90%</text>
+  <text x="425" y="97" text-anchor="middle" font-size="9" fill="#5b6675">出勤率</text>
+
+  <rect x="156" y="118" width="308" height="56" rx="8" fill="#EEEDFE" stroke="#AFA9EC" stroke-width=".6"/>
+  <text x="170" y="136" font-size="10" font-weight="700" fill="#3C3489">分时段出勤率</text>
+  <text x="170" y="153" font-size="9" fill="#5b6675">一二节 95%　三四节 88%　五六节 86%</text>
+  <text x="170" y="167" font-size="8.5" fill="#8a94a3">点某一节 → 整页只看那节课；再点一次回全天</text>
+
+  <rect x="156" y="182" width="308" height="34" rx="8" fill="#ffffff" stroke="#d5dbe3" stroke-width=".6"/>
+  <text x="170" y="203" font-size="9.5" fill="#5b6675">未签到名单（4）›　点开就是名字，点名用这个</text>
+
+  <rect x="156" y="224" width="308" height="30" rx="8" fill="#E6F1FB" stroke="#85B7EB" stroke-width=".6"/>
+  <text x="310" y="243" text-anchor="middle" font-size="9.5" fill="#185FA5">数据统计 ›（趋势图 + 导出）</text>
+
+  <text x="500" y="26" font-size="10.5" font-weight="700" fill="#1f2a37">怎么用</text>
+  <text x="500" y="48" font-size="9.5" fill="#185FA5">① 先选日期 + 班级</text>
+  <text x="500" y="64" font-size="9" fill="#5b6675">日期可回看以前，不能选未来</text>
+  <text x="500" y="88" font-size="9.5" fill="#185FA5">② 四个数字看基本盘</text>
+  <text x="500" y="104" font-size="9" fill="#5b6675">总 / 已签 / 未签 / 出勤率</text>
+  <text x="500" y="128" font-size="9.5" fill="#185FA5">③ 点节次可以下钻</text>
+  <text x="500" y="144" font-size="9" fill="#5b6675">只看那一节课谁没来</text>
+  <text x="500" y="168" font-size="9.5" fill="#185FA5">④ 未签到名单</text>
+  <text x="500" y="184" font-size="9" fill="#5b6675">下课前 5 分钟念一遍</text>
+  <text x="500" y="208" font-size="9.5" fill="#5b6675">页面每 60 秒自动刷新</text>
+  <text x="500" y="224" font-size="9" fill="#8a94a3">底部显示"数据更新于…"</text>
+</svg>
+<div class="cap">图 1 · 出勤看板就这几块</div>
+</div>
+
+<table>
+  <tr><th style="width:150px">要看什么</th><th>怎么做</th></tr>
+  <tr><td>今天来了多少人</td><td>看四个数字即可，有人陆续签到时自动更新</td></tr>
+  <tr><td>这一节谁没来</td><td>点「分时段出勤率」里的那一节 → 未签到名单变成该课时口径；再点一次回全天</td></tr>
+  <tr><td>出勤率怎么算</td><td>已签到 ÷ 总人数。<b>当天只要有一节课签到就算出勤</b>；测试签到不计入</td></tr>
+  <tr><td>查以前某天</td><td>顶部改日期；点「回到今天」快速跳回</td></tr>
+</table>
+<div class="tip green"><b>最实用的一步：</b>下课前 5 分钟打开「未签到名单」念一遍名字，绝大多数漏签当场就能解决，比事后补签省事得多。</div>
+
+<!-- ==================== 三、签到项 ==================== -->
+<h2>三、上课前：确认签到项</h2>
+<p>「签到项管理」里每一项就是一次可签到的机会（一二节、晚自习、讲座…）。上课前确认三件事：</p>
+<table>
+  <tr><th style="width:170px">确认什么</th><th>怎么算对</th></tr>
+  <tr><td>状态是<span class="tag green">启用中</span></td><td>显示「已停用」学生端就看不到，点一下切换</td></tr>
+  <tr><td>时间窗覆盖本节课</td><td>默认「时间」前后各 10 分钟，如 8:00 的课 = 07:50–08:10；可自由改</td></tr>
+  <tr><td>限定方式选对</td><td>上课用「所属限定」，讲座/活动用「不限定」，临时换教室用「指定限定」</td></tr>
+</table>
+
+<h3>三个范围字段别再搞混</h3>
+<table>
+  <tr><th style="width:150px">字段</th><th>管什么</th><th style="width:180px">留空时</th></tr>
+  <tr><td>适用班级</td><td><b>谁能签</b></td><td>全院学生都能签</td></tr>
+  <tr><td>关联签到点</td><td><b>扫得到哪些信标</b></td><td>全部启用签到点都能扫</td></tr>
+  <tr><td>限定方式</td><td><b>在哪个信标签才算数</b>（最终裁决）</td><td>不限定 = 都能签</td></tr>
+</table>
+<div class="tip red"><span class="h">最常见的错</span>给全院讲座设了「所属限定」→ 学生全被拦在门外，提示"非本次签到点"。<b>讲座、活动一律用「不限定」</b>。</div>
+
+<p>另外两个限制按需设，一般不用管：<b>每日可签到次数</b>（每人每天几次，每日 0 点重置，常用「限 1 次」防重复）和<b>总人次上限</b>（整个签到项的累计额度，如报告厅容量 200）。</p>
+<div class="tip blue"><b>看到「已固定」：</b>该项被锁定，任何人（含根管理员）都不能改也不能删。需要改请找根管理员先「取消固定」。</div>
+
+<!-- ==================== 四、现场签到 ==================== -->
+<h2>四、现场：学生怎么签、漏签怎么补</h2>
+
+<h3>4.1 学生这边只有三步</h3>
+<div class="step"><div class="num">1</div><div><div class="t">首次使用：认领身份</div><div class="d">「我的」→ 认领身份 → 输入<b>学号 + 姓名</b>，与名单一致才成功</div></div></div>
+<div class="step"><div class="num">2</div><div><div class="t">到教室附近，点「签到」</div><div class="d">手机需开着蓝牙（安卓还要开系统定位），扫到信标自动完成，约 3–10 秒</div></div></div>
+<div class="step"><div class="num">3</div><div><div class="t">看到「签到成功」即可</div><div class="d">记录在「签到日历」里能回看</div></div></div>
+
+<div class="fig">
+<svg viewBox="0 0 680 150" width="100%" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>一节课的签到时间轴</title>
+  <desc>课前十分钟签到窗开启，上课中是主要签到时段，课后十分钟关闭，之后只能补签</desc>
+  <line x1="40" y1="62" x2="640" y2="62" stroke="#c9d2dd" stroke-width="2"/>
+  <circle cx="110" cy="62" r="5.5" fill="#185FA5"/>
+  <circle cx="320" cy="62" r="5.5" fill="#3B6D11"/>
+  <circle cx="510" cy="62" r="5.5" fill="#BA7517"/>
+  <circle cx="626" cy="62" r="5.5" fill="#A32D2D"/>
+
+  <text x="110" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#185FA5">课前 10 分钟</text>
+  <text x="110" y="32" text-anchor="middle" font-size="9" fill="#5b6675">签到窗开启</text>
+  <text x="320" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#3B6D11">上课中</text>
+  <text x="320" y="32" text-anchor="middle" font-size="9" fill="#5b6675">主要签到时段</text>
+  <text x="510" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#BA7517">课后 10 分钟</text>
+  <text x="510" y="32" text-anchor="middle" font-size="9" fill="#5b6675">签到窗关闭</text>
+  <text x="626" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#A32D2D">之后</text>
+  <text x="626" y="32" text-anchor="middle" font-size="9" fill="#5b6675">只能补签</text>
+
+  <rect x="50" y="80" width="120" height="46" rx="8" fill="#E6F1FB" stroke="#85B7EB"/>
+  <text x="110" y="99" text-anchor="middle" font-size="9" fill="#185FA5">学生陆续进教室</text>
+  <text x="110" y="114" text-anchor="middle" font-size="9" fill="#185FA5">老师不用操作</text>
+  <rect x="260" y="80" width="120" height="46" rx="8" fill="#EAF3DE" stroke="#97C459"/>
+  <text x="320" y="99" text-anchor="middle" font-size="9" fill="#3B6D11">看看板数字</text>
+  <text x="320" y="114" text-anchor="middle" font-size="9" fill="#3B6D11">点名未签到</text>
+  <rect x="450" y="80" width="120" height="46" rx="8" fill="#FAEEDA" stroke="#EF9F27"/>
+  <text x="510" y="99" text-anchor="middle" font-size="9" fill="#412402">迟到者最后机会</text>
+  <text x="510" y="114" text-anchor="middle" font-size="9" fill="#412402">过点后不能再签</text>
+  <rect x="580" y="80" width="92" height="46" rx="8" fill="#FCEBEB" stroke="#F09595"/>
+  <text x="626" y="99" text-anchor="middle" font-size="9" fill="#A32D2D">出补签码</text>
+  <text x="626" y="114" text-anchor="middle" font-size="9" fill="#A32D2D">学生扫码补</text>
+</svg>
+<div class="cap">图 2 · 一节课的时间轴</div>
+</div>
+
+<h3>4.2 漏签怎么补：补签码</h3>
+<div class="step"><div class="num">1</div><div><div class="t">签到项管理 → 对应签到项 →「补签码」</div><div class="d">弹出二维码，一个签到项一个码，全班共用</div></div></div>
+<div class="step"><div class="num">2</div><div><div class="t">弹层保持打开，投屏或举给学生扫</div><div class="d">打开期间<b>每 60 秒自动换一张码</b>，关掉就不再换了</div></div></div>
+<div class="step"><div class="num">3</div><div><div class="t">学生用微信扫码，进「扫码补签」页完成</div><div class="d">只支持扫码，码不显示明文，不能口头转述给别班</div></div></div>
+<div class="step"><div class="num">4</div><div><div class="t">展示结束，点「作废」</div><div class="d">这一步别省，见下面红框</div></div></div>
+
+<div class="tip red">
+  <span class="h">⚠️ 结束后一定点「作废」</span>
+  关闭弹层只是停止换码，<b>最后那张码当天仍然有效</b>。如果被学生截屏，晚上还能用来补签。所以养成习惯：<b>下课就点「作废」</b>，要用再重新生成。
+</div>
+<p>另外三条：补签码<b>仅当天有效</b>；补签会计入出勤，但在签到名单里单列为 <span class="tag blue">补签</span> 来源，与蓝牙签到分得清；弹层上的「今日已补签 N 次」就是这张码被用了几次。</p>
+
+<!-- ==================== 五、名单与签到点 ==================== -->
+<h2>五、一次性配置：名单 + 签到点</h2>
+
+<h3>5.1 名单（出勤率的分母）</h3>
+<p>路径：班级名单管理 →「批量导入」。每行一条，逗号分隔四列，第 4 列辅导员可留空：</p>
+<div class="mono">24本科药学05班,张绮绫,202434002010501,关子岳
+24本科药学05班,胡睿,202434002010503,关子岳</div>
+<table>
+  <tr><th style="width:110px">模式</th><th>区别</th><th style="width:150px">用哪个</th></tr>
+  <tr><td><b>追加</b></td><td>只新增和更新，<b>不删人</b></td><td>日常补录，<b>优先用这个</b></td></tr>
+  <tr><td><b>覆盖</b></td><td>删掉班里不在本次名单中的人</td><td>学期初整体替换，<b>慎用</b></td></tr>
+</table>
+<div class="tip orange">覆盖模式漏写一个人 = 把他从名单里删掉，<b>出勤率分母变小、出勤率会虚高</b>。做覆盖前先「导出 CSV」留个底。<br>学生换手机/换微信签不了：走「通知信息」里的换绑审核，或在「身份绑定名单」里帮他「撤销绑定」后重新认领。</div>
+
+<h3>5.2 签到点（一个签到点 = 一个信标）</h3>
+<table>
+  <tr><th style="width:150px">字段</th><th>怎么填</th></tr>
+  <tr><td>名称</td><td><b>按班级上课的点，名称要带班名</b>（「所属限定」靠名称匹配班级）；公共教室随便起</td></tr>
+  <tr><td>UUID / Major / Minor</td><td>信标出厂参数，用厂商 App 或 nRF Connect 贴近信标读出；UUID 连字符可带可不带</td></tr>
+  <tr><td>近场 / 远场阈值</td><td>一般不用改，默认 <code>-70 / -85</code>。远场别调到 -95 以下，否则隔壁教室也能签上</td></tr>
+</table>
+<div class="tip blue">签到点多的时候用「批量导入」：CSV 列顺序 <code>名称,UUID,Major,Minor,近场阈值,远场阈值,启用,固定,备注</code>，以 UUID+Major+Minor 判重，已存在则更新。先点「导入模板」拿表头最稳。</div>
+
+<!-- ==================== 六、导出 ==================== -->
+<h2>六、导出与统计</h2>
+<p>入口：出勤看板底部「数据统计」。这一页最上面是导出模块，下面是趋势图。</p>
+<table>
+  <tr><th style="width:180px">要导什么</th><th>在哪</th></tr>
+  <tr><td>某个签到项的签到名单</td><td>签到项管理 →「签到名单」→「导出 CSV 名单」</td></tr>
+  <tr><td>某段时间的签到数据</td><td>数据统计 → 选起止日期 + 班级 →「导出签到数据 CSV」</td></tr>
+  <tr><td>班级名册</td><td>班级名单管理 →「导出 CSV」</td></tr>
+  <tr><td>签到点清单</td><td>签到点管理 →「批量导出」</td></tr>
+</table>
+<div class="tip orange">导出后会得到一个<b>临时下载链接，10 分钟内有效</b>，已自动复制到剪贴板，粘贴到浏览器打开就能下载。文件里有学生姓名学号，<b>不要转发到群里</b>。</div>
+<p>趋势图主要看三件事：<b>哪天人数断崖式下跌</b>（多半是配置或设备问题）、<b>哪个节次几乎没人签</b>（时间窗或限定方式配错了）、<b>哪个班完全没有记录</b>（这个班可能根本没用起来）。</p>
+
+<!-- ==================== 七、常见问题 ==================== -->
+<h2>七、常见问题</h2>
+<table>
+  <tr><th style="width:190px">现象</th><th>怎么办</th></tr>
+  <tr>
+    <td><b>全班都扫不出信标</b></td>
+    <td>信标没电/没装，或签到点参数填错，或签到点被停用。用 nRF Connect 贴近核对 UUID/Major/Minor</td>
+  </tr>
+  <tr>
+    <td><b>个别学生扫不出</b></td>
+    <td>蓝牙没开；安卓系统「定位」关着（安卓扫描的硬性要求）；离信标太远；手机后台被系统杀掉。让他开蓝牙和定位、靠近信标、把小程序清掉重进</td>
+  </tr>
+  <tr>
+    <td><b>转圈十几秒后提示扫不到</b></td>
+    <td>安卓系统对蓝牙扫描有频次限制，<b>反复点「开始扫描」会把额度提前用光，越点越扫不出</b>。让学生停手等 30 秒再点一次，程序自己会等、会重试</td>
+  </tr>
+  <tr>
+    <td>刚才还能签，突然不行</td>
+    <td>手机锁屏或切后台超过 30 秒，扫描被系统暂停（省电设计）。点亮屏幕回到小程序会自动恢复</td>
+  </tr>
+  <tr>
+    <td><b>提示「非本次签到点」</b></td>
+    <td>限定方式和教室不匹配。讲座改「不限定」，换教室用「指定限定」选中该教室</td>
+  </tr>
+  <tr>
+    <td>提示「不在签到时间内」</td>
+    <td>签到窗不覆盖当前时刻。检查开放/截止时间，或改用补签码</td>
+  </tr>
+  <tr>
+    <td>提示次数/名额已满</td>
+    <td>「每日可签到次数」或「总人次上限」用完了。正常行为；确需再签就临时调高</td>
+  </tr>
+  <tr>
+    <td>导出链接打不开</td>
+    <td>链接 10 分钟过期，且要在<b>浏览器</b>里打开（微信内直接点可能被拦）。重新导出一次即可</td>
+  </tr>
+  <tr>
+    <td>补签码扫不出 / 已失效</td>
+    <td>确认弹层是<b>打开</b>状态、没被点过「作废」。重新点一次「补签码」会再出</td>
+  </tr>
+  <tr>
+    <td>学生换手机签不了</td>
+    <td>走换绑申请审核，或在「身份绑定名单」里「撤销绑定」让他重新认领</td>
+  </tr>
+  <tr>
+    <td>某学生长期不来拉低出勤率</td>
+    <td>在「身份绑定名单」里关掉他的<b>信标开关</b>，该人员不再纳入统计</td>
+  </tr>
+  <tr>
+    <td>更新后老问题还在</td>
+    <td>小程序有本地缓存。让学生<b>删除小程序后重新搜索「我的工具签」</b>再试</td>
+  </tr>
+  <tr>
+    <td>改签到项时找不到「保存」</td>
+    <td>该项已被固定（只读）。请根管理员先「取消固定」</td>
+  </tr>
+</table>
+<div class="tip blue"><b>扫不到时最有用的一招：</b>学生端会出现「复制诊断信息发给老师」，点一下会复制机型、系统、失败原因和扫描过程。拿到这段文字，一眼就能判断是权限、频次限制还是配置问题。</div>
+
+<!-- ==================== 八、速查 ==================== -->
+<h2>八、一页速查（建议打印贴办公桌）</h2>
+<div class="card">
+  <p style="font-weight:700;margin-bottom:4px;">上课前</p>
+  <ul style="list-style:none;padding-left:2px;">
+    <li>☐ 签到项<span class="tag green">启用中</span>，时间窗覆盖本节课</li>
+    <li>☐ 限定方式选对（上课「所属限定」／讲座「不限定」）</li>
+    <li>☐ 教室信标有电</li>
+  </ul>
+  <p style="font-weight:700;margin:10px 0 4px;">课中</p>
+  <ul style="list-style:none;padding-left:2px;">
+    <li>☐ 看板看数字在涨；不涨 → 查「常见问题」第一条</li>
+    <li>☐ 下课前 5 分钟念未签到名单</li>
+  </ul>
+  <p style="font-weight:700;margin:10px 0 4px;">课后</p>
+  <ul style="list-style:none;padding-left:2px;">
+    <li>☐ 漏签 → 出补签码 → 学生扫 → <b>点「作废」</b></li>
+    <li>☐ 留档 → 导出 CSV</li>
+  </ul>
+  <p style="font-weight:700;margin:10px 0 4px;">四个最容易犯的错</p>
+  <ol style="padding-left:22px;">
+    <li>讲座用了「所属限定」→ 学生全签不上</li>
+    <li>让学生反复点「开始扫描」→ 越点越扫不出</li>
+    <li>补签码展示完不作废 → 被截屏的人晚上还能补</li>
+    <li>名单导入用「覆盖」→ 漏写的人被删出名单，出勤率虚高</li>
+  </ol>
+</div>
+
+<div style="border-top:1px solid #e4e8ee;margin-top:8px;padding-top:6px;font-size:12px">需要打印或转发给其他老师？<a href="manual-v1.9.78.pdf" style="color:#3B6D11">下载 PDF 版（v1.9.78）</a></div>
+<div class="footer">
+  我的工具签 · 管理员使用说明 · <b>v1.9.78</b> · 2026-10-21<br>
+  本文档依据当前版本的实际界面编写，功能以小程序内实际界面为准。
+</div>
+
+</div>
+</body>
+</html>
